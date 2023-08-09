@@ -1,6 +1,11 @@
 # PIPE-3956-aerial-segmentation
 Open source aerial segmentation models.
 
+## Context
+
+Phase 1 of PIPE-3956: Urban Heat Island CV/ML.
+
+In this phase of the project, we will be investigating and developing open source aerial segmentation models.
 
 ## Setup
 
