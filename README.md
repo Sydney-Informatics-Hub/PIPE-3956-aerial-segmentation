@@ -7,6 +7,8 @@ Phase 1 of PIPE-3956: Urban Heat Island CV/ML.
 
 In this phase of the project, we will be investigating and developing open source aerial segmentation models.
 
+Phase 2 & Phase 3 will be seperate repositories on Github Enterprise
+
 ## Setup
 
 ### Local (or interactive VM)
