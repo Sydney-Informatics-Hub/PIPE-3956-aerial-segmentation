@@ -9,6 +9,22 @@ In this phase of the project, we will be investigating and developing open sourc
 
 Phase 2 & Phase 3 will be seperate repositories on Github Enterprise
 
+## Project Overview
+
+Three connected parallel products:
+
+1. Open-source assisted annotation tool
+
+2. Segmentation modelling pipeline
+
+3. Computer vision prediction to GIS layer conversion tool: Prediction outputs from the segmenetation model pipeline will be aerial imagery tiles and the associated segmentation pipelines in COCO JSON. We will need to merge the polygons intelligently to unify the results into one shapefile that can be delivered as a data product.
+
+Together this will produce two data products:
+
+1. Aerial Segmentation Dataset
+
+2. AI prediction shapefiles
+
 ## Setup
 
 ### Local (or interactive VM)
