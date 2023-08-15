@@ -44,4 +44,4 @@ pip install -r requirements.txt
 - [samgeo](https://samgeo.gishub.org/): segment-geospatial - basically geospatial segment anything
 - [Computer vision fine tuning](https://github.com/Sydney-Informatics-Hub/computer-vision-fine-tuning): some general tips and tricks and explanations of core concepts.
 - [YOLO face mask detector demo](https://github.com/Sydney-Informatics-Hub/cv-demo)
-- 
+- [SAHI](https://github.com/obss/sahi): a very useful way to deal with image size limitations with CV models.
