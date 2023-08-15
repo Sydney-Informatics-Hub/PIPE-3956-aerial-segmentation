@@ -41,6 +41,11 @@ pip install -r requirements.txt
 
 ## Resources
 
+### Project Context
+- [Local Climate Zone classification scheme](https://journals.ametsoc.org/view/journals/bams/93/12/bams-d-11-00019.1.xml)
+
+### Segmentation Details
+
 - Aerial Segmentation with Detectron2 [colab tutorial](https://colab.research.google.com/drive/1xijyRU_t5SbWGlkZoTF94kaBKIWgX_Ul?usp=sharing)
 - gis2coco: GIS data format conversion into COCO [GitHub](https://github.com/hlydecker/gis2coco)
 - [samgeo](https://samgeo.gishub.org/): segment-geospatial - basically geospatial segment anything
