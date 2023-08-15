@@ -1,13 +1,15 @@
 # PIPE-3956-aerial-segmentation
 Open source aerial segmentation models.
 
+This is a meta repository that will contain key information about the project, and provide links to code repositories and useful resources.
+
 ## Context
 
-Phase 1 of PIPE-3956: Urban Heat Island CV/ML.
+Most of the world's human population is now clustered into cities. It is easy to think of cities as monolithic uniform things, but their morphology can be highly variable and heterogenous. 
 
-In this phase of the project, we will be investigating and developing open source aerial segmentation models.
+Like any animal, human's have evolved to exist in a particular thermal niche. The environments we create, such as cities, have different thermal conditions that influence the temperatures that we experience. 
 
-Phase 2 & Phase 3 will be seperate repositories on Github Enterprise
+To better understand the thermal ecology of cities from the human perspective, we will use computer vision to create segmentation layer masks that quantify the morpholoy of cities.
 
 ## Project Overview
 
