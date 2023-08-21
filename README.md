@@ -43,6 +43,7 @@ pip install -r requirements.txt
 
 ### Project Context
 - [Local Climate Zone classification scheme](https://journals.ametsoc.org/view/journals/bams/93/12/bams-d-11-00019.1.xml)
+- [Geoscape](https://geoscape.com.au/) - Lots of address/building/parcel data for Australia.
 
 ### Segmentation Details
 
