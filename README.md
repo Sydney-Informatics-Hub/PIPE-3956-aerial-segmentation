@@ -1,23 +1,25 @@
 # PIPE-3956-aerial-segmentation
-Open source aerial segmentation models.
+Open source aerial segmentation models and toolkits.
+
+This is a meta repository that will contain key information about the project, and provide links to code repositories and useful resources.
 
 ## Context
 
-Phase 1 of PIPE-3956: Urban Heat Island CV/ML.
+Most of the world's human population is now clustered into cities. It is easy to think of cities as monolithic uniform things, but their morphology can be highly variable and heterogenous. 
 
-In this phase of the project, we will be investigating and developing open source aerial segmentation models.
+Like any animal, human's have evolved to exist in a particular thermal niche. The environments we create, such as cities, have different thermal conditions that influence the temperatures that we experience. 
 
-Phase 2 & Phase 3 will be seperate repositories on Github Enterprise
+To better understand the thermal ecology of cities from the human perspective, we will use computer vision to create segmentation layer masks that quantify the morpholoy of cities.
 
 ## Project Overview
 
 Three connected parallel products:
 
-1. Open-source assisted annotation tool
+1. [aerial-annotation](https://github.com/Sydney-Informatics-Hub/aerial-annotation) - Tools for creating datasets of aerial imagery and segmentation annotations.
 
-2. Segmentation modelling pipeline
+2. [aerial-segmentation](https://github.com/Sydney-Informatics-Hub/aerial-segmentation) - Aerial imagery segmentation model fine tuninf, evaluation, and prediction tools.
 
-3. Computer vision prediction to GIS layer conversion tool: Prediction outputs from the segmenetation model pipeline will be aerial imagery tiles and the associated segmentation pipelines in COCO JSON. We will need to merge the polygons intelligently to unify the results into one shapefile that can be delivered as a data product.
+3. [aerial-conversion](https://github.com/Sydney-Informatics-Hub/aerial-conversion) - Computer vision prediction to GIS layer conversion tool. Prediction outputs from the segmenetation model pipeline will be aerial imagery tiles and the associated segmentation pipelines in COCO JSON. We will need to merge the polygons intelligently to unify the results into one shapefile that can be delivered as a data product.
 
 Together this will produce two data products:
 
@@ -39,9 +41,14 @@ pip install -r requirements.txt
 
 ## Resources
 
+### Project Context
+- [Local Climate Zone classification scheme](https://journals.ametsoc.org/view/journals/bams/93/12/bams-d-11-00019.1.xml)
+
+### Segmentation Details
+
 - Aerial Segmentation with Detectron2 [colab tutorial](https://colab.research.google.com/drive/1xijyRU_t5SbWGlkZoTF94kaBKIWgX_Ul?usp=sharing)
 - gis2coco: GIS data format conversion into COCO [GitHub](https://github.com/hlydecker/gis2coco)
 - [samgeo](https://samgeo.gishub.org/): segment-geospatial - basically geospatial segment anything
 - [Computer vision fine tuning](https://github.com/Sydney-Informatics-Hub/computer-vision-fine-tuning): some general tips and tricks and explanations of core concepts.
 - [YOLO face mask detector demo](https://github.com/Sydney-Informatics-Hub/cv-demo)
-- 
+- [SAHI](https://github.com/obss/sahi): a very useful way to deal with image size limitations with CV models.
