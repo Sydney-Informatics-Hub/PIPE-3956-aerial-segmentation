@@ -1,5 +1,5 @@
 # PIPE-3956-aerial-segmentation
-Open source aerial segmentation models.
+Open source aerial segmentation models and toolkits.
 
 This is a meta repository that will contain key information about the project, and provide links to code repositories and useful resources.
 
