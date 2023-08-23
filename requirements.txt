@@ -2,13 +2,10 @@ numpy
 tqdm
 pytorch
 argparse
-cv2
-glob
-json
+opencv-python
 pandas
 rasterio
 pathlib
-itertools
 pillow
 shapely
 geopandas
