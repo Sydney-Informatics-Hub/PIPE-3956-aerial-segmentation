@@ -1,0 +1,6 @@
+numpy
+pytorch
+pillow
+shapely
+geopandas
+tqdm
