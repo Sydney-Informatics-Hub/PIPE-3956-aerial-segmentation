@@ -1,6 +1,6 @@
 numpy
 tqdm
-pytorch
+torch
 argparse
 opencv-python
 pandas
