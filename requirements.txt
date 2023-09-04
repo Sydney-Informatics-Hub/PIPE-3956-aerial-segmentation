@@ -1,0 +1,14 @@
+numpy
+tqdm
+torch
+argparse
+opencv-python
+pandas
+rasterio
+pathlib
+pillow
+shapely
+geopandas
+roboflow
+wandb
+pyyaml==5.1
