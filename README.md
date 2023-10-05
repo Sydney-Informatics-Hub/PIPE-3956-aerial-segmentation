@@ -27,6 +27,10 @@ Together this will produce two data products:
 
 2. AI prediction shapefiles
 
+### System Archicture
+
+![Architeture]https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
+
 ## Setup
 
 ### Local (or interactive VM)
