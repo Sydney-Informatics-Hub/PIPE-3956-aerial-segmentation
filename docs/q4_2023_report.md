@@ -23,6 +23,10 @@ To accomplish our objectives within client timeframes, we have broken up develop
 2. Segmentation - computer vision model fine tuning and prediction
 3. Conversion - utilities to support data interchange between computer vision models and GIS data formats
 
+## Architecture
+
+![Architecture](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
+
 ## Development Tools
 
 Pytorch, Detectron2
