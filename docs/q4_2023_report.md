@@ -33,6 +33,12 @@ To do this, we will develop computer vision models and software utilities to aut
 
 **3. Model Prediction Tools** - Fine tuned model weights can be implemented into prediction utilities and applications to fit several different needs. Prediction can be run on personal computers using Python scripts, or for bulk prediction over large geospatial extents prediction can be run on cloud computing deployments. To demonstrate potential for deployment on UAVs, fixed wing aircraft, or spacecraft, we implemented a python benchmarking script and deployed it on a Jetson Nano Edge compute dev kit. 
 
+### Q1 2024 Roadmap 
+
+1. Model Optimisation - Continue to iterate and fine tune models on AWS deployment.
+2. Postprocessing Development - Improve building outline prediction post processing, and implement downstream LCZ and urban health postprocessing.
+3. Testing & Cleanup - Build software test suite and prepare software products for long term maintainability and usability by the broadest user suite possible. Improve documentation.
+
 ## Development Plan
 
 ### Development Team
@@ -78,6 +84,11 @@ For tree coverage, we used a multi-modal model to automaticall generate annotati
 
 Our two current datasets include over 55,000 tree patches and 75,000 building outlines across 3,900 aerial images from locations across the Greater Sydney Area. 
 
+
+In the example below, the input image on the left and the annotations are overlaid on the right. Buildings are in grey, and are very simple rectangles in this case encompasing the rough extent of each building. Tree patch outlines are in green, and can include anywhere from individual small trees to forests.
+
+![Annotation Example](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/d19ad098d13dd068930df6434e58851ae46782bd/docs/annotation-comparison.png)
+
 The annotation utilities we developed could be used anywhere in the world, producing ever larger datasets that could be used generally across the globe or optimised datasets to train models to perform well on different types of urban areas.
   
 ### Model Fine Tuning
@@ -102,20 +113,15 @@ Current benchmarking scripts run in Python, using CPU or CUDA. Future builds wil
 
 ![Dev Kit](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/fdc030840f370e3bfe9e73910d92406e869175ed/docs/aerial_seg_figure.png)
 
-## Next Steps
-
-1. Create full scale segementation model training dataset for the Sydney area.
-2. Fine tune segmentation model at scale on AWS, assessing performance and iterating as needed.
-3. Run prediction using fine tuned model on the entire Sydney area, and convert predictions into shapefiles.
-4. Discuss post processing steps, including calculating LCZs from polyon preditions.
 
 ## Additional Details
 
 ### Development Tools
 
-Python, Pytorch, Detectron2
-
-Segmentation Model Backbone: mask RCNN trained on COCO
+- Language: Python
+- Deep Learning Framework: PyTorch
+- Computer Vision Library: Detectron2
+- Spatial Processing: Rasterio, Geopandas, Shapely
 
 ### Data Sources
 
