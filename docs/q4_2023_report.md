@@ -18,7 +18,6 @@ To do this, we will develop computer vision models and software utilities to aut
   * [Model Fine Tuning](#model-fine-tuning)
   * [Prediction](#prediction)
   * [Dev Kit Performance Benchmarking](#dev-kit-performance-benchmarking)
-- [Next Steps](#next-steps)
 - [Additional Details](#additional-details)
   * [Development Tools](#development-tools)
   * [Data Sources](#data-sources)
