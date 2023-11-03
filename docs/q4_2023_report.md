@@ -32,43 +32,6 @@ To do this, we will develop computer vision models and software utilities to aut
 
 **3. Model Prediction Tools** - Fine tuned model weights can be implemented into prediction utilities and applications to fit several different needs. Prediction can be run on personal computers using Python scripts, or for bulk prediction over large geospatial extents prediction can be run on cloud computing deployments. To demonstrate potential for deployment on UAVs, fixed wing aircraft, or spacecraft, we implemented a python benchmarking script and deployed it on a Jetson Nano Edge compute dev kit. 
 
-## Development Plan
-
-### Development Team
-
-- Henry Lydecker, Data Science Group Lead
-- Thomas Mauch, Research Compute Data Scientist
-- Sahand Vahidnia, Machine Learning Engineer
-- Xinwei Luo, Software Engineer
-
-### Project Plan
-
-This project is split into three parallel development streams:
-
-**1. Annotation** - collecting and generating the data needed for model fine tuning and for prediction at scale
-
-**2. Segmentation** - computer vision model fine tuning and prediction
-
-**3. Conversion** - utilities to support data interchange between computer vision models and GIS data formats
-
-Each of these streams has been developed in a seperate GitHub repository, however over time the production ready features from each stream will be brought together into a final single GitHub repository.
-
-## System Architecture
-
-The three software streams are split into discrete chunks that could be developed independently, but together combine to create a comprehensive geospatial computer vision platform that supports data acquisition, conversion, pre-processing, model training, prediction, postprocessing, and production deployment.
-
-The project is built from a series of modular utilities designed to:
-- support data aquisition from geospatial data source APIs
-- dataset creation using existing open data
-- dataset creation using AI assisted annotation
-- data interchange between geospatial and computer vision formats
-- model fine tuning
-- model evaluation
-- model prediction
-- postprocessing and downstream analysis
-
-![Architecture](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
-
 ### Annotation
 
 For building outlines, we identified ABS SA1 regions of Sydney where Open Street Maps Buildings annotations covered all of the buildings in the SA1. These regions were then cut into 220 meter by  220 meter tiles, based on the optimal image size using the maximum resolution of SixMaps aerial imagery.
@@ -114,8 +77,42 @@ Performance is assessed by recording the amount of time and resources required t
 
 ![Dev Kit](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/fdc030840f370e3bfe9e73910d92406e869175ed/docs/aerial_seg_figure.png)
 
+## Development Plan
 
-## Additional Details
+### Development Team
+
+- Henry Lydecker, Data Science Group Lead
+- Thomas Mauch, Research Compute Data Scientist
+- Sahand Vahidnia, Machine Learning Engineer
+- Xinwei Luo, Software Engineer
+
+### Project Plan
+
+This project is split into three parallel development streams:
+
+**1. Annotation** - collecting and generating the data needed for model fine tuning and for prediction at scale
+
+**2. Segmentation** - computer vision model fine tuning and prediction
+
+**3. Conversion** - utilities to support data interchange between computer vision models and GIS data formats
+
+Each of these streams has been developed in a seperate GitHub repository, however over time the production ready features from each stream will be brought together into a final single GitHub repository.
+
+### System Architecture
+
+The three software streams are split into discrete chunks that could be developed independently, but together combine to create a comprehensive geospatial computer vision platform that supports data acquisition, conversion, pre-processing, model training, prediction, postprocessing, and production deployment.
+
+The project is built from a series of modular utilities designed to:
+- support data aquisition from geospatial data source APIs
+- dataset creation using existing open data
+- dataset creation using AI assisted annotation
+- data interchange between geospatial and computer vision formats
+- model fine tuning
+- model evaluation
+- model prediction
+- postprocessing and downstream analysis
+
+![Architecture](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
 
 ### Development Tools
 
@@ -140,5 +137,3 @@ The conversion stream involved the creation of a fully featured conversion Pytho
 - ABS SA1 Shapefiles: used to help intelligently collect and process data from the Sydney area.
 - Road Polygons: NSW Government Land Use 
 - Model Weights: Meta AI Research
-
-
