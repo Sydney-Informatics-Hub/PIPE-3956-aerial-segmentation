@@ -8,29 +8,45 @@ This project aims to calculate real-time human thermal comfort using spatial ima
 
 To do this, we will develop computer vision models and software utilities to automatically process geospatial imagery and generate polygon segmentations of building outlines and tree coverage. This data will then be fed into downstream processing to classify different types of local climate zones and better understand urban morphology.
 
-**Table of Contents**
-- [2023 Key Outcomes](#2023-key-outcomes)
-- [Development Plan](#development-plan)
-  * [Development Team](#development-team)
-  * [Project Plan](#project-plan)
-- [Architecture](#architecture)
-  * [Annotation](#annotation)
-  * [Model Fine Tuning](#model-fine-tuning)
-  * [Prediction](#prediction)
-  * [Dev Kit Performance Benchmarking](#dev-kit-performance-benchmarking)
-- [Additional Details](#additional-details)
-  * [Development Tools](#development-tools)
-  * [Data Sources](#data-sources)
-
 ## 2023 Key Outcomes
 
 **1. Urban Morphology Datasets** - There were no existing datasets in computer vision ready formats as of September 2023 suitable for the task, so we developed software and tools to make use of available open source geospatial data sources. For buildings, we were able to find high quality open source annotations from Open Street Map. However for trees, we needed to create our own dataset - for this we made use of a state-of-the-art multi modal model (Grounded LangSAMGeo) to generate tree annotation data. Our two datasets include over 55,000 tree patches and 75,000 building outlines across 3,900 aerial images from locations across the Greater Sydney Area.
 
-
 **2. Model Fine Tuning Pipeline** - We developed scalable model fine tuning utilities, usable on local computers, Google Colab, and on cloud computing environments. We used Google Colab fine tuning worflows to rapidly iterate and develop proof of concept prototypes. Once our fine tuning workflow was optimised, we then ran full scale model fine tuning on AWS using the University of Sydney's Ronin platform. This process is iterative and will continue running to improve model performance and optimise efficiency.
 
-
 **3. Model Prediction Tools** - Fine tuned model weights can be implemented into prediction utilities and applications to fit several different needs. Prediction can be run on personal computers using Python scripts, or for bulk prediction over large geospatial extents prediction can be run on cloud computing deployments. To demonstrate potential for deployment on UAVs, fixed wing aircraft, or spacecraft, we implemented a python benchmarking script and deployed it on a Jetson Nano Edge compute dev kit. 
+
+**Table of Contents**
+
+- [Overview](#overview)
+  * [System Architecture](#system-architecture)
+  * [Annotation](#annotation)
+  * [Model Fine Tuning](#model-fine-tuning)
+  * [Prediction](#prediction)
+  * [Dev Kit Performance Benchmarking](#dev-kit-performance-benchmarking)
+- [Development Plan](#development-plan)
+  * [Development Team](#development-team)
+  * [Project Plan](#project-plan)
+  * [Development Tools](#development-tools)
+  * [Data Sources](#data-sources)
+
+## Overview
+
+### System Architecture
+
+Development was split intro three different software stream that could be developed independently, but together combine to create a comprehensive geospatial computer vision platform that supports data acquisition, conversion, pre-processing, model training, prediction, postprocessing, and production deployment.
+
+The project is built from a series of modular utilities designed to:
+- support data aquisition from geospatial data source APIs
+- dataset creation using existing open data
+- dataset creation using AI assisted annotation
+- data interchange between geospatial and computer vision formats
+- model fine tuning
+- model evaluation
+- model prediction
+- postprocessing and downstream analysis
+
+![Architecture](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
 
 ### Annotation
 
@@ -97,22 +113,6 @@ This project is split into three parallel development streams:
 **3. Conversion** - utilities to support data interchange between computer vision models and GIS data formats
 
 Each of these streams has been developed in a seperate GitHub repository, however over time the production ready features from each stream will be brought together into a final single GitHub repository.
-
-### System Architecture
-
-The three software streams are split into discrete chunks that could be developed independently, but together combine to create a comprehensive geospatial computer vision platform that supports data acquisition, conversion, pre-processing, model training, prediction, postprocessing, and production deployment.
-
-The project is built from a series of modular utilities designed to:
-- support data aquisition from geospatial data source APIs
-- dataset creation using existing open data
-- dataset creation using AI assisted annotation
-- data interchange between geospatial and computer vision formats
-- model fine tuning
-- model evaluation
-- model prediction
-- postprocessing and downstream analysis
-
-![Architecture](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/0c437dca213e562cc1f1bb187bed1b98ca92aee1/docs/aerial_seg_architecture.png)
 
 ### Development Tools
 
