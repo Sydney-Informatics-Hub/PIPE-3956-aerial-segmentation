@@ -32,12 +32,6 @@ To do this, we will develop computer vision models and software utilities to aut
 
 **3. Model Prediction Tools** - Fine tuned model weights can be implemented into prediction utilities and applications to fit several different needs. Prediction can be run on personal computers using Python scripts, or for bulk prediction over large geospatial extents prediction can be run on cloud computing deployments. To demonstrate potential for deployment on UAVs, fixed wing aircraft, or spacecraft, we implemented a python benchmarking script and deployed it on a Jetson Nano Edge compute dev kit. 
 
-### Q1 2024 Roadmap 
-
-1. Model Optimisation - Continue to iterate and fine tune models on AWS deployment.
-2. Postprocessing Development - Improve building outline prediction post processing, and implement downstream LCZ and urban health postprocessing.
-3. Testing & Cleanup - Build software test suite and prepare software products for long term maintainability and usability by the broadest user suite possible. Improve documentation.
-
 ## Development Plan
 
 ### Development Team
