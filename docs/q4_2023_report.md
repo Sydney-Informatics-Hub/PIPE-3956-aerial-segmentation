@@ -59,7 +59,9 @@ This project is split into three parallel development streams:
 
 Each of these streams has been developed in a seperate GitHub repository, however over time the production ready features from each stream will be brought together into a final single GitHub repository.
 
-## Architecture
+## System Architecture
+
+The three software streams are split into discrete chunks that could be developed independently, but together combine to create a comprehensive geospatial computer vision platform that supports data acquisition, conversion, pre-processing, model training, prediction, postprocessing, and production deployment.
 
 The project is built from a series of modular utilities designed to:
 - support data aquisition from geospatial data source APIs
@@ -94,6 +96,8 @@ The annotation utilities we developed could be used anywhere in the world, produ
 
 Rather than training models from scratch, we will fine tune our models on the excellent performance in existing segmentation model. 
 
+After iterative code development and testing using Google Colab notebook environments using very small samples of our larger datasets, we fine tuned models at scale using the full datasets on AWS Ronin instances equiped with A100 GPUs. Model fine tuning will be an iterative process, as we optimise model parameters and experiment with data augmentation and pre-processing to optimise for robust real world performance.
+
 ![Segmentation](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/fdc030840f370e3bfe9e73910d92406e869175ed/docs/aerial-seg-fine-tuning.png)
 
 ### Prediction 
@@ -104,11 +108,15 @@ Fine tuned models will be deployed in prediction utilities that allow users to s
 
 ### Dev Kit Performance Benchmarking
 
-Benchmarking scripts have been developed to run on Jetson Nano dev kits and simulate a real world edge deployment on an aircraft or spacecraft capturing imagery and running prediction in real time.
+Benchmarking scripts have been developed to run on Jetson Nano dev kits and simulate a real-world edge deployment on an aircraft or spacecraft capturing imagery and running prediction in real time.
+
+The model currently being used for these benchmarking scripts is a Mask RCNN R 101 FPN backbone pre-trained on MS COCO for instance segmentation and fine-tuned using a dataset of building polygons for the suburb of Chatswood, New South Wales. This model was fine-tuned on Google Colab GPU virtual machine for 3000 epochs. 
 
 The scripts run on a stream of images and return predicted building outlines rendered on output images, counts of buildings detected, and metrics of the amount of time required to process each image.
 
-Current benchmarking scripts run in Python, using CPU or CUDA. Future builds will run in more lightweight deployments like ONNX and C++.
+Current benchmarking scripts run in python, using CPU or CUDA. Future builds will run in more lightweight deployments like ONNX and C++.
+
+Performance is assessed by recording the amount of time and resources required to make each prediction, and by comparing the ground truth building annotations with the predicted building polygons using the metric of mean average precision (mAP) of Intersection over Union (IoU). Results are also visually inspected for sanity checking.
 
 ![Dev Kit](https://github.com/Sydney-Informatics-Hub/PIPE-3956-aerial-segmentation/blob/fdc030840f370e3bfe9e73910d92406e869175ed/docs/aerial_seg_figure.png)
 
@@ -122,9 +130,21 @@ Current benchmarking scripts run in Python, using CPU or CUDA. Future builds wil
 - Computer Vision Library: Detectron2
 - Spatial Processing: Rasterio, Geopandas, Shapely
 
+Core development work has been done in the general-purpose programming language Python, using the current industry leading Pytorch neural net framework. GitHub is used for version control, with pre commit checks to ensure code quality and reliability.
+  
+For the annotation stream, we developed Python scripts to collect and pre-process raster imagery and building polygon shapefiles. There are no open-source tree polygon shapefiles available for the Sydney area, so we developed a script to automatically generate tree polygons using a Multi-Modal Model (MMM). Our MMM involved two modalities: a large language model to receive text inputs and “ground” a computer vision model (Segment Anything Geospatial) to understand imagery and segment out polygons with visual embeddings sufficiently aligned with the LLM prompt textual embeddings. This overall approach can be referred to as grounded SAMGeo.
+
+For the segmentation stream, we used the open-source Detectron2 computer vision framework developed by Meta AI Research. This framework was chosen due to its relative ease of use and maintainability, its support for efficient data interchange using the COCO JSON format, and its linkages with the broader Pytorch ecosystem of neural net tooling. Pre-trained weights (Mask RCNN R 101 FPN, trained on the MS COCO Instance Segmentation dataset) were used to fine tune a multiclass instance segmentation model to detect buildings and trees in aerial imagery.
+
+The conversion stream involved the creation of a fully featured conversion Python library called gis2coco to allow seamless data interchange between geospatial data formats (raster imagery and vector polygon shapefiles) and computer vision data formats (PNG images and COCO JSON annotations). This stream built on existing work done by Henry Lydecker to develop a conversion utility to convert GIS data into computer vision formats, and now has the functionality to convert from computer vision formats back into GIS formats. This utility allows for geospatial datasets to be turned into forms that can be used to fine tune models, and for computer vision predictions to be converted into GIS formats for future analysis.
+
 ### Data Sources
 
 - Imagery: NSW Government SixMaps
 - Building Polygons: Open Street Map Buildings
-- Trees Polygons: AI generated using grounded Segment Anything Geospatial (grounded SAMGeo).
-- ABS SA1 Shapefiles: used to help identify regions of Sydney where all of the buildings present are annotated by Open Street Map Buildings.
+- Trees Polygons: AI generated using grounded Segment Anything Geospatial (grounded LangSAMGeo).
+- ABS SA1 Shapefiles: used to help intelligently collect and process data from the Sydney area.
+- Road Polygons: NSW Government Land Use 
+- Model Weights: Meta AI Research
+
+
