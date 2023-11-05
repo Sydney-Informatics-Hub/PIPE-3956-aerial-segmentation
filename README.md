@@ -17,7 +17,7 @@ Three connected parallel products:
 
 1. [aerial-annotation](https://github.com/Sydney-Informatics-Hub/aerial-annotation) - Tools for creating datasets of aerial imagery and segmentation annotations.
 
-2. [aerial-segmentation](https://github.com/Sydney-Informatics-Hub/aerial-segmentation) - Aerial imagery segmentation model fine tuninf, evaluation, and prediction tools.
+2. [aerial-segmentation](https://github.com/Sydney-Informatics-Hub/aerial-segmentation) - Aerial imagery segmentation model fine tuning, evaluation, and prediction tools.
 
 3. [aerial-conversion](https://github.com/Sydney-Informatics-Hub/aerial-conversion) - Computer vision prediction to GIS layer conversion tool. Prediction outputs from the segmenetation model pipeline will be aerial imagery tiles and the associated segmentation pipelines in COCO JSON. We will need to merge the polygons intelligently to unify the results into one shapefile that can be delivered as a data product.
 
